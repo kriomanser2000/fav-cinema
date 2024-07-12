@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react';
+import MovieInfo from './components/MovieInfo';
+import ActorList from './components/ActorList';
+import Poster from './components/Poster';
+const App = () => 
+{
+  const movie = 
+  {
+    title: 'Birdman',
+    director: 'Alejandro González Iñárritu',
+    releaseYear: 2014,
+    studio: 'Fox Searchlight Pictures',
+    actors: 
+    [
+      'Michael Keaton',
+      'Zach Galifianakis',
+      'Edward Norton',
+      'Andrea Riseborough',
+      'Amy Ryan',
+      'Emma Stone',
+      'Naomi Watts'
+    ],
+    posterSrc: '/poster.jpg'
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MovieInfo 
+        title={movie.title}
+        director={movie.director}
+        releaseYear={movie.releaseYear}
+        studio={movie.studio}
+      />
+      <ActorList actors={movie.actors} />
+      <Poster src={movie.posterSrc} />
     </div>
   );
-}
-
+};
 export default App;
